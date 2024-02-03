@@ -1,28 +1,20 @@
-import '../scss/App.scss'
+import { useState } from 'react';
+
+import Header from './Header'
+import QuotesList from './QuotesList';
+
+import '../scss/App.scss';
+
+import dataQuotes from "../data/quotes.json";
 
 function App() {
+  const [quotes] = useState(dataQuotes);
+
   return (
     <div className="app">
-      <header className="header">
-        <h1>Frases de Friends</h1>
-        <form>
-        <label for="phraseFilter">Filtrar por frase:</label>
-        <input type="text" id="phraseFilter" name="phraseFilter" />
-        <label for="filtroPersonaje">Filtrar por personaje:</label>
-        <select id="characterFilter" name="characterFilter">
-          <option value="ross">Ross</option>
-          <option value="rachel">Rachel</option>
-          <option value="monica">Monica</option>
-          <option value="chandler">Chandler</option>
-          <option value="joey">Joey</option>
-          <option value="phoebe">Phoebe</option>
-        </select>
-      </form>
-      </header>
-      <main>
-        <ul>
-          <li>Pivot! Pivot! Pivot! Pivot! Pivot! - <span>Ross</span></li>
-        </ul>
+      <Header />
+      <main className="quotes">
+        <QuotesList quotes={quotes}  />
       </main>
     </div>
   )
