@@ -9,6 +9,7 @@ function Filters({ handleFilterQuotes, filterQuotes, filterCharacter }) {
   const handleInputCharacter = (event) => {
     handleFilterQuotes('character', event.currentTarget.value);
   };
+  
 
   return (
     <form className="filter">
