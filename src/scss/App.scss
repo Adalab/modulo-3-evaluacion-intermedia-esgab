@@ -10,8 +10,17 @@
     }
 }
 
-.filters {
+.filter {
+    width: 100%;
+    padding-bottom: 20px;
     border-bottom: 1px solid red;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    &__input {
+        padding-left: 5px;
+    }
 }
 
 .quotes {
@@ -20,6 +29,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10%;
 
     &__list {
         display: grid;
@@ -34,7 +44,30 @@
         padding: 20px;
         border: 2px solid lightgrey;
         border-radius: 20px;
-        weight: 600;
+    }
+
+    .addform {
+        padding: 10px 0;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+            border-bottom: 1px solid grey;
+            padding-bottom: 5px;
+        }
+
+        &__add {
+            padding: 10px 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input {
+            padding: 4px 10px;
+            width: 300px;
+        }
     }
 }
 
@@ -42,3 +75,4 @@
     color: rgb(4, 167, 243);
     font-size: 18px;
 }
+
