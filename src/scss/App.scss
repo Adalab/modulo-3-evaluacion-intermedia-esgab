@@ -1,1 +1,44 @@
 @import 'core/reset';
+
+.header {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__logo {
+        width: 350px;
+    }
+}
+
+.filters {
+    border-bottom: 1px solid red;
+}
+
+.quotes {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 5% 0 10%;
+    }
+    
+    &__item {
+        text-decoration: none;
+        list-style-type: none;
+        padding: 20px;
+        border: 2px solid lightgrey;
+        border-radius: 20px;
+        weight: 600;
+    }
+}
+
+.quote__character {
+    color: rgb(4, 167, 243);
+    font-size: 18px;
+}

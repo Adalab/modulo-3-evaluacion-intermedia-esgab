@@ -10,25 +10,36 @@ import dataQuotes from "../data/quotes.json";
 
 function App() {
   const [quotes] = useState(dataQuotes)
+
   const [filterQuotes, setFilterQuotes] = useState('');
-  const [filterCharacter, setFilterCharacter] = useState('');
+  const [filterCharacter, setFilterCharacter] = useState('all');
 
-  const handleFilterQuotes = (filterValue) => {
-    setFilterQuotes(filterValue);
+  const handleFilterQuotes = (filterName, value) => {
+
+    if( filterName === 'quote' ) {
+      setFilterQuotes(value);
+    }
+    else if( filterName === 'character' ) {
+      setFilterCharacter(value);
+    }
   };
 
-  const handleFilterCharacter = (filterValue) => {
-    setFilterCharacter(filterValue);
-  };
-
-  const filteredQuotes = quotes.filter(quote => quote.quote.toLowerCase().includes(filterQuotes.toLowerCase()));
+  const filteredQuotes = quotes
+    .filter((quote) => quote.quote.includes(filterQuotes))
+    .filter((quote) => {
+      if (filterCharacter === "all") {
+        return true;
+      } else {
+        return quote.character === filterCharacter;
+      }
+    });
 
   return (
     <div className="app">
       <Header />
       <main className="quotes">
-        <Filters handleFilterQuotes={handleFilterQuotes} handleFilterCharacter={handleFilterCharacter} />
-        <QuotesList quotes={filteredQuotes}/>
+        <Filters handleFilterQuotes={handleFilterQuotes} />
+        <QuotesList quotes={filteredQuotes} />
       </main>
     </div>
   )
