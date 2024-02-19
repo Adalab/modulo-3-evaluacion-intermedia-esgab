@@ -1,28 +1,30 @@
 function Filters({handleFilterQuotes, handleFilterCharacter}) {
 
-  const handleInput = (event) => {
+  const handleInputQuotes = (event) => {
     handleFilterQuotes(event.currentTarget.value);
   };
 
-  const handleSelect = (event) => {
+  const handleSelectCharacter = (event) => {
     handleFilterCharacter(event.currentTarget.value);
   };
 
   return (
-    <form className="filters">
-      <label htmlFor="quotesFilter">Filtrar por frase:</label>
-      <input type="text" id="quotesFilter" name="quotesFilter" onInput={handleInput}/>
+    <form className="filter">
+      <label className="filter__label" htmlFor="character">Filtrar por frase:
+        <input className="filter__input" type="text" id="quotes" name="quotes" onInput={handleInputQuotes}/>
+      </label>
 
-      <label htmlFor="characterFilter">Filtrar por personaje:</label>
-      <select id="characterFilter" name="characterFilter" onInput={handleSelect}>
-        <option value="all">Todos</option>
-        <option value="Ross">Ross</option>
-        <option value="Monica">Monica</option>
-        <option value="Joey">Joey</option>
-        <option value="Phoebe">Phoebe</option>
-        <option value="Chandler">Chandler</option>
-        <option value="Rachel">Rachel</option>
-      </select>
+      <label className="filter__label" htmlFor="character">Filtrar por personaje:
+        <select className="filter__select" id="character" name="character" onInput={handleSelectCharacter}>
+          <option value="all">Todos</option>
+          <option value="Ross">Ross</option>
+          <option value="Monica">Monica</option>
+          <option value="Joey">Joey</option>
+          <option value="Phoebe">Phoebe</option>
+          <option value="Chandler">Chandler</option>
+          <option value="Rachel">Rachel</option>
+        </select>
+      </label>
     </form>
   );
 }
