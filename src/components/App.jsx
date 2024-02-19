@@ -38,7 +38,7 @@ function App() {
     <div className="app">
       <Header />
       <main className="quotes">
-        <Filters handleFilterQuotes={handleFilterQuotes} />
+        <Filters handleFilterQuotes={handleFilterQuotes}  />
         <QuotesList quotes={filteredQuotes} />
       </main>
     </div>
